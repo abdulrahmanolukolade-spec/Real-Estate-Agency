@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUXENEST — Luxury Real Estate</title>
+  <meta name="description" content="LUXENEST — Where Luxury Finds Its Address. Exclusive luxury properties, estates, and penthouses.">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Tailwind CSS (Utility Classes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=85');
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-luxenest fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">LUXE<span>NEST</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="listings.html">Properties</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="agents.html">Agents</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ Premier Real Estate</div>
+      <h1>Where Luxury<br>Finds Its <span>Address</span></h1>
+      <p>Discover the world's most exclusive properties. From penthouses to private estates — experience living without limits.</p>
+      <div class="hero-search">
+        <input type="text" placeholder="Search by location, property..." id="heroSearchInput">
+        <select id="heroSearchType">
+          <option value="all">All Types</option>
+          <option value="sale">For Sale</option>
+          <option value="rent">For Rent</option>
+        </select>
+        <select id="heroSearchCategory">
+          <option value="all">All Categories</option>
+          <option value="villa">Villas</option>
+          <option value="house">Houses</option>
+          <option value="apartment">Apartments</option>
+        </select>
+        <button onclick="heroSearch()"><i class="fas fa-search"></i> Search</button>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ==================== STATS ==================== -->
+  <section class="stats-section py-5">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-6 col-lg-3">
+          <div class="stat-item">
+            <h3><span class="stat-number" data-target="1500">0</span>+</h3>
+            <p>Properties Sold</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-item">
+            <h3><span class="stat-number" data-target="850">0</span>+</h3>
+            <p>Happy Clients</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-item">
+            <h3><span class="stat-number" data-target="25">0</span>+</h3>
+            <p>Years Experience</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-item">
+            <h3><span class="stat-number" data-target="50">0</span>+</h3>
+            <p>Award Wins</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED PROPERTIES ==================== -->
+  <section class="featured-section section-padding">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="text-uppercase" style="color: var(--accent-gold); letter-spacing: 3px; font-size: 0.85rem; font-weight: 500;">Featured Listings</span>
+        <h2 class="section-title">Exclusive Properties</h2>
+        <div class="gold-divider center"></div>
+        <p class="section-subtitle">Handpicked selections from our collection of the world's finest residences.</p>
+      </div>
+      <div class="row" id="featuredGrid"></div>
+      <div class="text-center mt-4 reveal">
+        <a href="listings.html" class="btn-luxenest">View All Properties <i class="fas fa-arrow-right ms-2"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT PREVIEW ==================== -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal">
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85" alt="Luxury Living" loading="lazy">
+          </div>
+        </div>
+        <div class="col-lg-6 about-content reveal">
+          <span class="text-uppercase" style="color: var(--accent-gold); letter-spacing: 3px; font-size: 0.85rem; font-weight: 500;">About LUXENEST</span>
+          <h2>Crafting Extraordinary<br>Living Experiences</h2>
+          <div class="gold-divider"></div>
+          <p>For over two decades, LUXENEST has been the trusted name in luxury real estate. We connect discerning clients with properties that redefine elegance — from sleek urban penthouses to sprawling countryside estates.</p>
+          <p>Our team of elite agents brings unparalleled market knowledge and a commitment to excellence that sets us apart.</p>
+          <a href="about.html" class="btn-luxenest mt-3">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="section-padding" style="background: var(--bg-off-white);">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="text-uppercase" style="color: var(--accent-gold); letter-spacing: 3px; font-size: 0.85rem; font-weight: 500;">Testimonials</span>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="gold-divider center"></div>
+      </div>
+      <div class="row g-4 mt-2">
+        <div class="col-lg-4 reveal">
+          <div class="testimonial-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p>"LUXENEST helped us find our dream home in Beverly Hills. Their attention to detail and understanding of our needs was exceptional."</p>
+            <div class="client-name">— Sarah & James Mitchell</div>
+            <div class="client-title">Beverly Hills Estate</div>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal" style="transition-delay: 0.1s;">
+          <div class="testimonial-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p>"The team at LUXENEST made selling our penthouse seamless. Their marketing strategy attracted the perfect buyer within weeks."</p>
+            <div class="client-name">— David Chen</div>
+            <div class="client-title">Miami Penthouse</div>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal" style="transition-delay: 0.2s;">
+          <div class="testimonial-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p>"From the first consultation to closing, every step was handled with professionalism and care. Truly a world-class agency."</p>
+            <div class="client-name">— Elena Rodriguez</div>
+            <div class="client-title">Manhattan Condo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEWSLETTER ==================== -->
+  <section class="section-padding" style="background: var(--primary-dark);">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 reveal">
+          <h2 class="text-white mb-3" style="font-size: 2rem;">Stay Inspired</h2>
+          <p class="text-white-50 mb-4">Subscribe to receive exclusive property listings, market insights, and luxury living inspiration.</p>
+          <form class="newsletter-form d-flex gap-2" style="max-width: 500px; margin: 0 auto;">
+            <input type="email" class="form-control form-control-lg" placeholder="Your email address" required style="border-radius: 8px;">
+            <button type="submit" class="btn-luxenest" style="white-space: nowrap;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-luxenest">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a href="index.html" class="brand-footer">LUXE<span>NEST</span></a>
+          <p class="mt-3 mb-4" style="font-size: 0.9rem;">Where Luxury Finds Its Address. We connect discerning clients with the world's most exceptional properties.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html">Home</a></li>
+            <li class="mb-2"><a href="listings.html">Properties</a></li>
+            <li class="mb-2"><a href="about.html">About Us</a></li>
+            <li class="mb-2"><a href="agents.html">Agents</a></li>
+            <li class="mb-2"><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h5>Property Types</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="listings.html?category=villa">Luxury Villas</a></li>
+            <li class="mb-2"><a href="listings.html?category=house">Estates</a></li>
+            <li class="mb-2"><a href="listings.html?category=apartment">Penthouses</a></li>
+            <li class="mb-2"><a href="listings.html?type=rent">Rentals</a></li>
+            <li class="mb-2"><a href="listings.html?type=sale">For Sale</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h5>Contact Info</h5>
+          <ul class="list-unstyled" style="font-size: 0.9rem;">
+            <li class="mb-2"><i class="fas fa-map-marker-alt me-2" style="color: var(--accent-gold);"></i> 100 Luxury Ave, NY 10001</li>
+            <li class="mb-2"><i class="fas fa-phone me-2" style="color: var(--accent-gold);"></i> +1 (555) 123-4567</li>
+            <li class="mb-2"><i class="fas fa-envelope me-2" style="color: var(--accent-gold);"></i> hello@luxenest.com</li>
+            <li><i class="fas fa-clock me-2" style="color: var(--accent-gold);"></i> Mon–Sat: 9AM – 7PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start">
+            &copy; 2026 LUXENEST. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#" class="me-3">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    function heroSearch() {
+      const term = document.getElementById('heroSearchInput').value;
+      const type = document.getElementById('heroSearchType').value;
+      const category = document.getElementById('heroSearchCategory').value;
+      let url = 'listings.html?';
+      if (term) url += `search=${encodeURIComponent(term)}&`;
+      if (type !== 'all') url += `type=${type}&`;
+      if (category !== 'all') url += `category=${category}&`;
+      window.location.href = url;
+    }
+
+    document.getElementById('heroSearchInput')?.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') heroSearch();
+    });
+  </script>
+</body>
+</html>
