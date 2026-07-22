@@ -1049,3 +1049,48 @@ a:hover {
 /* ---------- Pricing / Rent/Sale Tags ---------- */
 .badge-rent { background: #28a745; }
 .badge-sale { background: var(--primary-dark); }
+
+/* ============================================================
+   NAVBAR DROPDOWN FIX — Prevents dropdown from becoming invisible
+   Resolves Tailwind CSS / Bootstrap 5 conflict where 
+   opacity/visibility gets overridden after initial render.
+   ============================================================ */
+
+/* Force dropdown to stay visible when Bootstrap marks it as .show */
+.navbar .dropdown-menu.show,
+.navbar .dropdown-menu[data-bs-popper].show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+  display: block !important;
+}
+
+/* Ensure the dropdown toggle doesn't lose its active state */
+.navbar .dropdown-toggle.show,
+.navbar .dropdown-toggle[aria-expanded="true"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Fix z-index stacking for fixed-top navbar dropdowns */
+.navbar.fixed-top .dropdown-menu {
+  z-index: 1050 !important;
+}
+
+
+/* Ensure nav items with dropdowns don't get clipped */
+.navbar .nav-item.dropdown {
+  position: relative;
+  overflow: visible !important;
+}
+
+/* Reset any Tailwind preflight interference on dropdown components */
+.navbar .dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  display: none;
+  pointer-events: none;
+}
+
