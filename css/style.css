@@ -1088,8 +1088,8 @@ a:hover {
 /* Reset any Tailwind preflight interference on dropdown components */
 .navbar .dropdown-menu {
   opacity: 0;
+  transform: translateY(10px);
   visibility: hidden;
-  transition: opacity 0.15s ease, visibility 0.15s ease;
   display: none;
   pointer-events: none;
 }
